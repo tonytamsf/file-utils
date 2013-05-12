@@ -1,0 +1,21 @@
+#!/home/y/bin/perl -w
+
+# stream of filename, remove the extension and 
+# rename to [filename].inc
+use File::Basename;
+my $srcExt = shift;
+my $destExt = shift;
+unless($destExt && $srcExt)
+{
+    die "Usage: $0 [new extension]";
+}
+while (<>)
+{
+    chomp();
+    $filepart = basename($_, $srcExt);
+    $dirpart  = dirname($_);
+    
+    print "rename $dirpart/$filepart$srcExt $dirpart.footer$destExt\n";
+    rename ("$dirpart/$filepart$srcExt", "$dirpart.footer$destExt");
+}
+

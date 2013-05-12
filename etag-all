@@ -1,0 +1,7 @@
+#!/bin/bash
+
+cd ~/src.40/yahoo
+find . -name *.c -print -exec /usr/local/bin/etags -a {} \; &
+find . -name *.C -print -exec /usr/local/bin/etags -a {} \; &
+find . -name *.cc -print -exec /usr/local/bin/etags -a {} \; &
+find . -name *.h -print -exec /usr/local/bin/etags -a {} \; &

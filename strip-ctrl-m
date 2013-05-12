@@ -1,0 +1,7 @@
+#!/home/y/bin/perl -w
+
+while (<>)
+{
+    s/\cM/\n/gs;
+    print;
+}

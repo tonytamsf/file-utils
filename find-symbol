@@ -1,0 +1,19 @@
+#!/usr/local/bin/perl -w
+
+use File::Find;
+use Getopt::Std;
+
+sub process_file {
+    return if !/\.[ao]$/;
+    
+    $d="$File::Find::dir";
+    $f="$_";
+    $nm = `nm $f`;
+    if( $nm =~ /\b$tok\b/ ) {
+	print "$d/$f\n";
+    }
+}
+
+$tok = shift(@ARGV);
+
+find(\&process_file, ".");
