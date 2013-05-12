@@ -1,0 +1,14 @@
+#!/usr/bin/perl -w 
+use strict;
+
+my $S_file = $ARGV[0];
+my @lines = ();
+while (<>)
+{
+  push(@lines, $_);
+}
+
+if (!defined($lines[scalar(@lines)-1]) || $lines[scalar(@lines)-1] =~ /^\s*$/s)
+{
+  print "stupid $S_file\n";
+}
